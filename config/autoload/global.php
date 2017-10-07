@@ -12,5 +12,5 @@
  */
 
 return [
-    // ...
+	'urlApi'=> "https://bibliapp.herokuapp.com/api/authors"
 ];

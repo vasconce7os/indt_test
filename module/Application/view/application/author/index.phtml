@@ -1,0 +1,32 @@
+<?php
+$title = "Authors";
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title); ?></h1>
+
+<?php 
+if($lAuthors)
+{
+?>
+
+<table class="table">
+    <tr>
+        <th>Full name</th>
+    </tr>
+    <?php foreach ($lAuthors as $author) :?>
+        <tr>
+            <td><?= $this->escapeHtml($author->firstName . ' ' . $author->lastName) ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php
+}
+?>
+<pre>
+
+<?php
+// print_r($lAuthors);
+?>
+
+</pre>
