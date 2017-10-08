@@ -10,7 +10,7 @@ class Author extends Model
     	$client = new \GuzzleHttp\Client();
     	try
     	{
-			$this-> response = $client->request('GET', $this->getUrlApi());
+			$this-> response = $client->request('GET', $this->getUrlApi(). "/authors");
     	} catch (\Exception $e) 
     	{
     		return false;
@@ -22,5 +22,24 @@ class Author extends Model
 		{
 			return false;
 		}
+    }
+
+    public function create($data = array())
+    { 
+        $client = new \GuzzleHttp\Client();
+        try
+        {
+            $this-> response = $client->request('POST', $this->getUrlApi(). "/authors", ['json' => $data]);
+        } catch (\Exception $e) 
+        {
+            return false;
+        }
+        if($this-> response->getStatusCode() == 200)
+        {
+            return json_decode($this-> response->getBody());
+        } else
+        {
+            return false;
+        }
     }
 }

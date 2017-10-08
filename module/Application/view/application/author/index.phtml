@@ -3,7 +3,11 @@ $title = "Authors";
 $this->headTitle($title);
 ?>
 <h1><?= $this->escapeHtml($title); ?></h1>
-
+<div>
+    <a href="<?php echo $this->url('author', array('action'=> "import"))?>">
+    	&raquo; Import authors
+    </a>
+</div>
 <?php 
 if($lAuthors)
 {
