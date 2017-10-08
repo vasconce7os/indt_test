@@ -27,11 +27,14 @@
         "zendframework/zend-session": "^2.7.1",
         "zendframework/zend-servicemanager-di": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
-        "tasmaniski/zend-config-helper": "^2.0"
+        "tasmaniski/zend-config-helper": "^2.0",
+        "zendframework/zend-file": "^2.7"
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/"
+            "Application\\": "module/Application/src/",
+            "Upload\\": "module/Upload/src/",
+            "ZF2FileUploadExamples\\": "module/ZF2FileUploadExamples/src/"
         }
     },
     "autoload-dev": {
