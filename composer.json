@@ -28,7 +28,8 @@
         "zendframework/zend-servicemanager-di": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "tasmaniski/zend-config-helper": "^2.0",
-        "zendframework/zend-file": "^2.7"
+        "zendframework/zend-file": "^2.7",
+        "zendframework/zend-inputfilter": "^2.7"
     },
     "autoload": {
         "psr-4": {
