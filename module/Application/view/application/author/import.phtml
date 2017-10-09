@@ -4,7 +4,7 @@ $this->headTitle($title);
 ?>
 <h1><?= $this->escapeHtml($title); ?></h1>
 <div>
-    <a href="<?php echo $this->url('author')?>">
+    <a href="<?php echo $this->url('author')?>" class="btn btn-default" role="button">
     	&laquo; List all authors
     </a>
 </div>
@@ -14,7 +14,6 @@ if(isset($messagesFlash[0]))
 {
 	foreach ($messagesFlash as $key => $message)
 	{
-	
 		?>
 	    <div class="alert alert-<?= $message['class'] ?>">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -25,58 +24,84 @@ if(isset($messagesFlash[0]))
 	}
 }
 ?>
-
-<h2><?php echo ($this->title) ?: 'Enter with file of Authors' ?></h2>
-
-<?php
-// Init Form
-$form = $this->form;
-$form->setAttribute('class', 'form-horizontal');
-$form->prepare();
-
-// Configure Errors Helper
-$errorsHelper  = $this->plugin('formelementerrors');
-$errorsHelper
-    ->setMessageOpenFormat('<div class="help-block">')
-    ->setMessageSeparatorString('</div><div class="help-block">')
-    ->setMessageCloseString('</div>');
-?>
-<?php echo $this->form()->openTag($form); ?>
-<fieldset>
-    <legend><?php echo ($this->legend) ?: 'File Upload' ?></legend>
-
-    <?php
-    $elem = $form->get('file');
-    $elem->setLabelAttributes(array('class' => 'control-label'));
-    $errors = $elem->getMessages();
-    $errorClass = (!empty($errors)) ? ' error' : '';
-    ?>
-    <div class="control-group<?php echo $errorClass ?>">
-        <?php echo $this->formLabel($elem); ?>
-        <div class="controls">
-            <?php echo $this->formFile($elem); ?>
-            <?php echo $errorsHelper($elem); ?>
-            <?php if (!empty($this->tempFiles)) { ?>
-                <!--
-                Note: You might not want to render the file input in this
-                case either, depending on your use-case.
-                -->
-                <div class="help-block">
-                    Uploaded: <ul>
-                    <?php foreach ($this->tempFiles as $tempFile) { ?>
-                        <li><?php echo $this->escapeHtml($tempFile['name']) ?></li>
-                    <?php } ?>
-                    </ul>
-                </div>
-            <?php } ?>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <?php echo ($this->title) ?: 'Enter with file of Authors' ?>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <?php
+                $form = $this->form;
+                $form->setAttribute('class', 'form-horizontal');
+                $form->prepare();
+                $errorsHelper  = $this->plugin('formelementerrors');
+                $errorsHelper
+                    ->setMessageOpenFormat('<div class="help-block">')
+                    ->setMessageSeparatorString('</div><div class="help-block">')
+                    ->setMessageCloseString('</div>');
+                ?>
+                <?php echo $this->form()->openTag($form); ?>
+                <fieldset>
+                    <legend><?php echo ($this->legend) ?: 'File Upload' ?></legend>
+                    <?php
+                    $elem = $form->get('file');
+                    $elem->setLabelAttributes(array('class' => 'control-label'));
+                    $errors = $elem->getMessages();
+                    $errorClass = (!empty($errors)) ? ' error' : '';
+                    ?>
+                    <div class="control-group<?php echo $errorClass ?>">
+                        <?php echo $this->formLabel($elem); ?>
+                        <div class="controls">
+                            <?php echo $this->formFile($elem); ?>
+                            <?php echo $errorsHelper($elem); ?>
+                            <?php if (!empty($this->tempFiles)) { ?>
+                                <!--
+                                Note: You might not want to render the file input in this
+                                case either, depending on your use-case.
+                                -->
+                                <div class="help-block">
+                                    Uploaded: <ul>
+                                    <?php foreach ($this->tempFiles as $tempFile) { ?>
+                                        <li><?php echo $this->escapeHtml($tempFile['name']) ?></li>
+                                    <?php } ?>
+                                    </ul>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+                <?php echo $this->form()->closeTag($form); ?>
+            </div>
         </div>
     </div>
-
-    <div class="control-group">
-        <div class="controls">
-            <button class="btn btn-primary">Submit</button>
+    <div class="col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Layout file
+                </h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Each line must contain one name author with first name and last name
+                    </li>
+                    <li class="list-group-item">
+                        Each line must contain one name author
+                    </li>
+                    <li class="list-group-item">
+                        Blanck lines will be descartes
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-
-</fieldset>
-<?php echo $this->form()->closeTag($form); ?>
+</div>
