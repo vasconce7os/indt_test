@@ -1,11 +1,11 @@
 <?php
-$title = "Authors";
+$title = "Books";
 $this->headTitle($title);
 ?>
 <h1><?= $this->escapeHtml($title); ?></h1>
 <div>
-    <a href="<?php echo $this->url('author')?>">
-    	&laquo; List all authors
+    <a href="<?php echo $this->url('book')?>">
+    	&laquo; List all books
     </a>
 </div>
 
@@ -14,7 +14,6 @@ if(isset($messagesFlash[0]))
 {
 	foreach ($messagesFlash as $key => $message)
 	{
-	
 		?>
 	    <div class="alert alert-<?= $message['class'] ?>">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -26,15 +25,13 @@ if(isset($messagesFlash[0]))
 }
 ?>
 
-<h2><?php echo ($this->title) ?: 'Enter with file of Authors' ?></h2>
+<h2><?php echo ($this->title) ?: 'Enter with file of Books' ?></h2>
 
 <?php
-// Init Form
 $form = $this->form;
 $form->setAttribute('class', 'form-horizontal');
 $form->prepare();
 
-// Configure Errors Helper
 $errorsHelper  = $this->plugin('formelementerrors');
 $errorsHelper
     ->setMessageOpenFormat('<div class="help-block">')
@@ -57,10 +54,6 @@ $errorsHelper
             <?php echo $this->formFile($elem); ?>
             <?php echo $errorsHelper($elem); ?>
             <?php if (!empty($this->tempFiles)) { ?>
-                <!--
-                Note: You might not want to render the file input in this
-                case either, depending on your use-case.
-                -->
                 <div class="help-block">
                     Uploaded: <ul>
                     <?php foreach ($this->tempFiles as $tempFile) { ?>

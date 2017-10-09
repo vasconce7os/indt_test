@@ -8,6 +8,7 @@ use Application\Model\Author;
 class AuthorController extends AbstractActionController
 {
     private $messagesFlash = array();
+    
     public function indexAction()
     {
     	$author = new Author();

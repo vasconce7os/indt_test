@@ -35,16 +35,16 @@ return [
                 ],
             ],
 
-            'upload' => [
+            'book' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'       => '/upload[/:action[/:id]]',
+                    'route'       => '/book[/:action[/:id]]',
                     'constraints' => [
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ],
                     'defaults'    => [
-                        'controller' => Controller\UploadController::class,
+                        'controller' => Controller\BookController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -71,7 +71,7 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
-            Controller\UploadController::class => InvokableFactory::class,
+            Controller\BookController::class => InvokableFactory::class,
             Controller\AuthorController::class => InvokableFactory::class,
         ],
     ],

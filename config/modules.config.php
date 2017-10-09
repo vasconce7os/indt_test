@@ -14,6 +14,5 @@ return [
     'Zend\Router',
     'Zend\Validator',
     'Application',
-    'ConfigHelper',
-    // 'ZF2FileUploadExamples'
+    'ConfigHelper'
 ];

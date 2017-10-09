@@ -1,0 +1,29 @@
+<?php
+$title = "Books";
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title); ?></h1>
+<div>
+    <a href="<?php echo $this->url('book', array('action'=> "import"));?>">
+    	&raquo; Import books
+    </a>
+</div>
+<?php
+if($lBooks)
+{
+?>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+    </tr>
+    <?php foreach ($lBooks as $book) :?>
+        <tr>
+            <td><?= $this->escapeHtml($book->title) ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php
+}
+?>

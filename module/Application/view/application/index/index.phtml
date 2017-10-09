@@ -6,9 +6,7 @@ $this->headTitle($title);
     <h1>Library App <span class="zf-green">herokuapp</span></h1>
     <p>
         Test 
-        <a href="http://www.indt.org.br/" target="_blank">
-        INDT
-        </a>.
+        <a href="http://www.indt.org.br" target="_blank">INDT</a>.
     </p>
 </div>
 
@@ -27,6 +25,25 @@ $this->headTitle($title);
                 <p>
                     <a class="btn btn-success pull-right" href="<?php echo($this-> basePath("author")); ?>">
                     Authors &raquo;
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Books
+                </h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Guide for Books
+                </p>
+                <p>
+                    <a class="btn btn-success pull-right" href="<?php echo($this-> basePath("book")); ?>">
+                    Books &raquo;
                     </a>
                 </p>
             </div>
