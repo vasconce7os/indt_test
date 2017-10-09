@@ -133,6 +133,13 @@ class BookController extends AbstractActionController
                 'class'=> "danger"
             ];
             return null;
+        }else if(empty($lBooks))
+        {
+            $this->messagesFlash[] = [
+                'text'=> "No record was found in the file received",
+                'class'=> "danger"
+            ];
+            return null;
         }
         return $lBooks;
     }

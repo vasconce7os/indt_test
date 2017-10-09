@@ -109,6 +109,10 @@ class AuthorController extends AbstractActionController
             }
            $numberLine++;
         }
+        if(empty($lAuthors))
+        {
+            
+        }
         if(!$invalidName)
         {
             return $lAuthors;
